@@ -17,6 +17,14 @@ internal static class OversightOptionsSetup
                     static options => options.NoiseReduction.ExcludedPaths
                         .All(static p => !string.IsNullOrWhiteSpace(p) && p.StartsWith('/')),
                     "Oversight: every NoiseReduction:ExcludedPaths entry must be a non-empty path glob starting with '/'.")
+                .Validate(
+                    static options => !options.SqlServer.Enabled
+                        || !string.IsNullOrWhiteSpace(options.SqlServer.ConnectionStringName),
+                    "Oversight: SqlServer is enabled but SqlServer:ConnectionStringName is empty.")
+                .Validate(
+                    static options => !options.SqlServer.Enabled
+                        || options.SqlServer.CollectionInterval >= TimeSpan.FromMinutes(1),
+                    "Oversight: SqlServer:CollectionInterval must be at least 1 minute.")
                 .ValidateOnStart();
         }
 

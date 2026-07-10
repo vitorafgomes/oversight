@@ -35,6 +35,7 @@ warning — it never fails, and an unreachable collector never breaks your app.
 | `Oversight.Core` | Worker Services / console hosts — `AddOversightCore()` |
 | `Oversight.AspNetCore` | Granular: HTTP server traces/metrics, noise filter, Prometheus — `AddOversightAspNetCore()` |
 | `Oversight.EntityFrameworkCore` | Granular: EF Core + SqlClient traces — `AddOversightEntityFrameworkCore()` |
+| `Oversight.SqlServer` | Opt-in: SQL Server health monitoring (blocking, missing indexes, waits) — `AddOversightSqlServer()` |
 
 ## Configuration
 
@@ -48,6 +49,10 @@ appsettings section (or the lambda) controls only Oversight-specific behavior:
 | `Oversight:NoiseReduction:ExcludedPaths` | `/health /healthz /alive /ready /metrics` | Path globs excluded from server traces (config values append to defaults) |
 | `Oversight:EntityFrameworkCore:Enabled` | `true` | Register EF Core + SqlClient instrumentation |
 | `Oversight:EntityFrameworkCore:CaptureQueryText` | `false` | Opt-in: keep `db.query.text` on database spans |
+| `Oversight:SqlServer:Enabled` | `false` | Opt-in: collect SQL Server health metrics and findings |
+| `Oversight:SqlServer:ConnectionStringName` | — | `ConnectionStrings` entry of the monitored database (required when enabled) |
+| `Oversight:SqlServer:CollectionInterval` | `00:15:00` | Time between collection cycles (minimum 1 minute) |
+| `Oversight:SqlServer:Collectors:<Name>` | `true` | Per-collector toggles: `BlockingSessions`, `LongRunningTransactions`, `MissingIndexes`, `StaleStatistics`, `WaitStatistics` |
 
 ```csharp
 builder.AddOversight(oversight =>
