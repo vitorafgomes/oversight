@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farol.Core.Tests", "tests\F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farol.AspNetCore.Tests", "tests\Farol.AspNetCore.Tests\Farol.AspNetCore.Tests.csproj", "{193CF200-0236-48F3-8C0B-FB0BDADAD911}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farol.EntityFrameworkCore.Tests", "tests\Farol.EntityFrameworkCore.Tests\Farol.EntityFrameworkCore.Tests.csproj", "{1271A470-7AD0-412D-815A-B8550F545C4C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -101,6 +103,18 @@ Global
 		{193CF200-0236-48F3-8C0B-FB0BDADAD911}.Release|x64.Build.0 = Release|Any CPU
 		{193CF200-0236-48F3-8C0B-FB0BDADAD911}.Release|x86.ActiveCfg = Release|Any CPU
 		{193CF200-0236-48F3-8C0B-FB0BDADAD911}.Release|x86.Build.0 = Release|Any CPU
+		{1271A470-7AD0-412D-815A-B8550F545C4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1271A470-7AD0-412D-815A-B8550F545C4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1271A470-7AD0-412D-815A-B8550F545C4C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1271A470-7AD0-412D-815A-B8550F545C4C}.Debug|x64.Build.0 = Debug|Any CPU
+		{1271A470-7AD0-412D-815A-B8550F545C4C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1271A470-7AD0-412D-815A-B8550F545C4C}.Debug|x86.Build.0 = Debug|Any CPU
+		{1271A470-7AD0-412D-815A-B8550F545C4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1271A470-7AD0-412D-815A-B8550F545C4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1271A470-7AD0-412D-815A-B8550F545C4C}.Release|x64.ActiveCfg = Release|Any CPU
+		{1271A470-7AD0-412D-815A-B8550F545C4C}.Release|x64.Build.0 = Release|Any CPU
+		{1271A470-7AD0-412D-815A-B8550F545C4C}.Release|x86.ActiveCfg = Release|Any CPU
+		{1271A470-7AD0-412D-815A-B8550F545C4C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -112,5 +126,6 @@ Global
 		{AF5E5620-99AD-4E48-B301-F05D80907586} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 		{214D1531-4EDD-4B8C-BEC5-3409A3948C9B} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
 		{193CF200-0236-48F3-8C0B-FB0BDADAD911} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
+		{1271A470-7AD0-412D-815A-B8550F545C4C} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
 	EndGlobalSection
 EndGlobal
