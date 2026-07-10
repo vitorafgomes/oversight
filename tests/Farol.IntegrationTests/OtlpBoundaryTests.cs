@@ -29,6 +29,16 @@ public class OtlpBoundaryTests
 
         response.StatusCode.ShouldBe(HttpStatusCode.OK);
         (await response.Content.ReadAsStringAsync()).ShouldBe("hello");
+
+        // Force a synchronous export against the dead endpoint so the failure happens
+        // inside the assertion window; the batch processor would otherwise defer it past
+        // the test. The OTLP exporter must swallow the connection refusal.
+        FarolFactory.Flush(factory);
+
+        var secondResponse = await client.GetAsync("/api/hello");
+
+        secondResponse.StatusCode.ShouldBe(HttpStatusCode.OK);
+        (await secondResponse.Content.ReadAsStringAsync()).ShouldBe("hello");
     }
 
     [Fact]
