@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farol.AspNetCore.Tests", "t
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farol.EntityFrameworkCore.Tests", "tests\Farol.EntityFrameworkCore.Tests\Farol.EntityFrameworkCore.Tests.csproj", "{1271A470-7AD0-412D-815A-B8550F545C4C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farol.Tests", "tests\Farol.Tests\Farol.Tests.csproj", "{9EF4027E-CE35-47BF-911A-4B648F2B78AC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -115,6 +117,18 @@ Global
 		{1271A470-7AD0-412D-815A-B8550F545C4C}.Release|x64.Build.0 = Release|Any CPU
 		{1271A470-7AD0-412D-815A-B8550F545C4C}.Release|x86.ActiveCfg = Release|Any CPU
 		{1271A470-7AD0-412D-815A-B8550F545C4C}.Release|x86.Build.0 = Release|Any CPU
+		{9EF4027E-CE35-47BF-911A-4B648F2B78AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EF4027E-CE35-47BF-911A-4B648F2B78AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EF4027E-CE35-47BF-911A-4B648F2B78AC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9EF4027E-CE35-47BF-911A-4B648F2B78AC}.Debug|x64.Build.0 = Debug|Any CPU
+		{9EF4027E-CE35-47BF-911A-4B648F2B78AC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9EF4027E-CE35-47BF-911A-4B648F2B78AC}.Debug|x86.Build.0 = Debug|Any CPU
+		{9EF4027E-CE35-47BF-911A-4B648F2B78AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EF4027E-CE35-47BF-911A-4B648F2B78AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EF4027E-CE35-47BF-911A-4B648F2B78AC}.Release|x64.ActiveCfg = Release|Any CPU
+		{9EF4027E-CE35-47BF-911A-4B648F2B78AC}.Release|x64.Build.0 = Release|Any CPU
+		{9EF4027E-CE35-47BF-911A-4B648F2B78AC}.Release|x86.ActiveCfg = Release|Any CPU
+		{9EF4027E-CE35-47BF-911A-4B648F2B78AC}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -127,5 +141,6 @@ Global
 		{214D1531-4EDD-4B8C-BEC5-3409A3948C9B} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
 		{193CF200-0236-48F3-8C0B-FB0BDADAD911} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
 		{1271A470-7AD0-412D-815A-B8550F545C4C} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
+		{9EF4027E-CE35-47BF-911A-4B648F2B78AC} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
 	EndGlobalSection
 EndGlobal
