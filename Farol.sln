@@ -27,6 +27,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farol.TestApp", "tests\Faro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farol.IntegrationTests", "tests\Farol.IntegrationTests\Farol.IntegrationTests.csproj", "{A541F154-EDC7-46DF-BD35-00AE9A0FB9EE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{5D20AA90-6969-D8BD-9DCD-8634F4692FDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farol.Sample.Api", "samples\Farol.Sample.Api\Farol.Sample.Api.csproj", "{2A7C3351-4133-4A0E-B4DB-C2803ABE6802}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -157,6 +161,18 @@ Global
 		{A541F154-EDC7-46DF-BD35-00AE9A0FB9EE}.Release|x64.Build.0 = Release|Any CPU
 		{A541F154-EDC7-46DF-BD35-00AE9A0FB9EE}.Release|x86.ActiveCfg = Release|Any CPU
 		{A541F154-EDC7-46DF-BD35-00AE9A0FB9EE}.Release|x86.Build.0 = Release|Any CPU
+		{2A7C3351-4133-4A0E-B4DB-C2803ABE6802}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A7C3351-4133-4A0E-B4DB-C2803ABE6802}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A7C3351-4133-4A0E-B4DB-C2803ABE6802}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2A7C3351-4133-4A0E-B4DB-C2803ABE6802}.Debug|x64.Build.0 = Debug|Any CPU
+		{2A7C3351-4133-4A0E-B4DB-C2803ABE6802}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2A7C3351-4133-4A0E-B4DB-C2803ABE6802}.Debug|x86.Build.0 = Debug|Any CPU
+		{2A7C3351-4133-4A0E-B4DB-C2803ABE6802}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A7C3351-4133-4A0E-B4DB-C2803ABE6802}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A7C3351-4133-4A0E-B4DB-C2803ABE6802}.Release|x64.ActiveCfg = Release|Any CPU
+		{2A7C3351-4133-4A0E-B4DB-C2803ABE6802}.Release|x64.Build.0 = Release|Any CPU
+		{2A7C3351-4133-4A0E-B4DB-C2803ABE6802}.Release|x86.ActiveCfg = Release|Any CPU
+		{2A7C3351-4133-4A0E-B4DB-C2803ABE6802}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -172,5 +188,6 @@ Global
 		{9EF4027E-CE35-47BF-911A-4B648F2B78AC} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
 		{A95E604A-E680-4001-88D2-BE6DA864A840} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
 		{A541F154-EDC7-46DF-BD35-00AE9A0FB9EE} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
+		{2A7C3351-4133-4A0E-B4DB-C2803ABE6802} = {5D20AA90-6969-D8BD-9DCD-8634F4692FDA}
 	EndGlobalSection
 EndGlobal
