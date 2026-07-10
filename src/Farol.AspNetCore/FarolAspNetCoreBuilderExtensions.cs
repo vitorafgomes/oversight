@@ -11,6 +11,11 @@ namespace Farol;
 /// <summary>ASP.NET Core layer: server traces with noise reduction, server metrics, optional Prometheus endpoint.</summary>
 public static class FarolAspNetCoreBuilderExtensions
 {
+    /// <remarks>
+    /// Farol composes with instrumentation delegates configured before it runs rather than
+    /// replacing them; any previously registered request filter must also pass for a request
+    /// to be traced.
+    /// </remarks>
     public static IHostApplicationBuilder AddFarolAspNetCore(
         this IHostApplicationBuilder builder,
         Action<FarolOptions>? configure = null)
@@ -31,7 +36,10 @@ public static class FarolAspNetCoreBuilderExtensions
             .Configure<IOptions<FarolOptions>>(static (instrumentation, farol) =>
             {
                 var matcher = new PathGlobMatcher(farol.Value.NoiseReduction.ExcludedPaths);
-                instrumentation.Filter = context => !matcher.IsExcluded(context.Request.Path.Value ?? "/");
+                var existingFilter = instrumentation.Filter;
+                instrumentation.Filter = context =>
+                    (existingFilter?.Invoke(context) ?? true)
+                    && !matcher.IsExcluded(context.Request.Path.Value ?? "/");
             });
 
         builder.Services.AddOpenTelemetry()

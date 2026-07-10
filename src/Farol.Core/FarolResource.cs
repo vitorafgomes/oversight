@@ -12,7 +12,8 @@ internal static class FarolResource
     {
         var attributes = new List<KeyValuePair<string, object>>();
 
-        if (string.IsNullOrWhiteSpace(otelServiceName))
+        if (string.IsNullOrWhiteSpace(otelServiceName)
+            && !ContainsKey(otelResourceAttributes, "service.name"))
         {
             var serviceName = entryAssembly?.GetName().Name;
             if (!string.IsNullOrWhiteSpace(serviceName))

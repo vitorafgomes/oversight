@@ -11,6 +11,10 @@ namespace Farol;
 /// <summary>Database layer: EF Core and SqlClient traces; query text capture is opt-in.</summary>
 public static class FarolEntityFrameworkCoreBuilderExtensions
 {
+    /// <remarks>
+    /// Farol composes with instrumentation delegates configured before it runs rather than
+    /// replacing them; any previously registered enrich callback is invoked first.
+    /// </remarks>
     public static IHostApplicationBuilder AddFarolEntityFrameworkCore(
         this IHostApplicationBuilder builder,
         Action<FarolOptions>? configure = null)
@@ -33,19 +37,31 @@ public static class FarolEntityFrameworkCoreBuilderExtensions
         // removed in 1.13.0-beta.1); the enrich callback runs inside the instrumentation
         // before export, so nulling the tag there restores Farol's off-by-default.
         builder.Services.AddOptions<EntityFrameworkInstrumentationOptions>()
-            .Configure<IOptions<FarolOptions>>(static (instrumentation, farol) =>
+            .Configure<IOptions<FarolOptions>>((instrumentation, farol) =>
             {
                 if (!farol.Value.EntityFrameworkCore.CaptureQueryText)
-                    instrumentation.EnrichWithIDbCommand = static (activity, _) =>
+                {
+                    var existing = instrumentation.EnrichWithIDbCommand;
+                    instrumentation.EnrichWithIDbCommand = (activity, command) =>
+                    {
+                        existing?.Invoke(activity, command);
                         FarolDbQueryTextScrubber.Scrub(activity);
+                    };
+                }
             });
 
         builder.Services.AddOptions<SqlClientTraceInstrumentationOptions>()
-            .Configure<IOptions<FarolOptions>>(static (instrumentation, farol) =>
+            .Configure<IOptions<FarolOptions>>((instrumentation, farol) =>
             {
                 if (!farol.Value.EntityFrameworkCore.CaptureQueryText)
-                    instrumentation.EnrichWithSqlCommand = static (activity, _) =>
+                {
+                    var existing = instrumentation.EnrichWithSqlCommand;
+                    instrumentation.EnrichWithSqlCommand = (activity, command) =>
+                    {
+                        existing?.Invoke(activity, command);
                         FarolDbQueryTextScrubber.Scrub(activity);
+                    };
+                }
             });
 
         builder.Services.AddOpenTelemetry().WithTracing(static tracing => tracing

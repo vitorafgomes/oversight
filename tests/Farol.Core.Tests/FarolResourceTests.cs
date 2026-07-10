@@ -26,6 +26,15 @@ public class FarolResourceTests
     }
 
     [Fact]
+    public void Does_not_set_service_name_when_resource_attributes_already_carry_it()
+    {
+        var attributes = FarolResource.BuildFallbackAttributes(
+            null, "service.name=my-svc", "Production", TestAssembly);
+
+        attributes.ShouldNotContain(a => a.Key == "service.name");
+    }
+
+    [Fact]
     public void Adds_service_version_from_informational_version()
     {
         var expected = TestAssembly
