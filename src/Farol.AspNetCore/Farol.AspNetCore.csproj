@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Farol for ASP.NET Core: HTTP server traces and metrics, web noise reduction (health/metrics endpoints excluded from traces), optional Prometheus scrape endpoint.</Description>
+    <NoWarn>$(NoWarn);NU5104</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" />
+    <PackageReference Include="OpenTelemetry.Exporter.Prometheus.AspNetCore" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../Farol.Core/Farol.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Farol" />
+    <InternalsVisibleTo Include="Farol.AspNetCore.Tests" />
+    <InternalsVisibleTo Include="Farol.Tests" />
+  </ItemGroup>
+</Project>

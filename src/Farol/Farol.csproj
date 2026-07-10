@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Opinionated OpenTelemetry defaults for .NET in one call: builder.AddFarol(). Meta-package aggregating Farol.Core, Farol.AspNetCore and Farol.EntityFrameworkCore.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../Farol.Core/Farol.Core.csproj" />
+    <ProjectReference Include="../Farol.AspNetCore/Farol.AspNetCore.csproj" />
+    <ProjectReference Include="../Farol.EntityFrameworkCore/Farol.EntityFrameworkCore.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Farol.Tests" />
+  </ItemGroup>
+</Project>
