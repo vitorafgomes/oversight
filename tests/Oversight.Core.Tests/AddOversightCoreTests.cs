@@ -44,6 +44,18 @@ public class AddOversightCoreTests
     }
 
     [Fact]
+    public void Calling_add_oversight_core_twice_registers_the_startup_diagnostics_once()
+    {
+        var builder = Host.CreateApplicationBuilder();
+        builder.AddOversightCore();
+        builder.AddOversightCore();
+
+        builder.Services.Count(d =>
+            d.ServiceType == typeof(IHostedService)
+            && d.ImplementationType == typeof(OversightStartupDiagnostics)).ShouldBe(1);
+    }
+
+    [Fact]
     public void Exports_spans_through_the_configured_pipeline()
     {
         List<Activity> exported = [];

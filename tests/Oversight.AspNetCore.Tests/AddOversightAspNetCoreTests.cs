@@ -78,6 +78,35 @@ public class AddOversightAspNetCoreTests
         builder.Services.Count(d => d.ServiceType == typeof(OversightAspNetCoreMarker)).ShouldBe(1);
     }
 
+    [Fact]
+    public void Trace_filter_composes_user_filter_with_oversight_exclusions()
+    {
+        var builder = Host.CreateApplicationBuilder();
+        builder.Services.AddOptions<AspNetCoreTraceInstrumentationOptions>()
+            .Configure(o => o.Filter = context => context.Request.Path != "/user-rejected");
+        builder.AddOversightAspNetCore();
+        using var host = builder.Build();
+
+        var filter = host.Services
+            .GetRequiredService<IOptions<AspNetCoreTraceInstrumentationOptions>>().Value.Filter;
+
+        filter.ShouldNotBeNull();
+        filter!(HttpContextWithPath("/user-rejected")).ShouldBeFalse();
+        filter(HttpContextWithPath("/health")).ShouldBeFalse();
+        filter(HttpContextWithPath("/api/x")).ShouldBeTrue();
+    }
+
+    [Fact]
+    public void Second_call_does_not_register_prometheus_startup_filter()
+    {
+        var builder = Host.CreateApplicationBuilder();
+        builder.AddOversightAspNetCore();
+        builder.AddOversightAspNetCore(o => o.Prometheus.Enabled = true);
+
+        builder.Services.ShouldNotContain(d =>
+            d.ImplementationType == typeof(OversightPrometheusStartupFilter));
+    }
+
     private static DefaultHttpContext HttpContextWithPath(string path)
     {
         var context = new DefaultHttpContext();
