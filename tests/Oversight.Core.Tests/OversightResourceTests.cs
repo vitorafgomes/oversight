@@ -78,4 +78,16 @@ public class OversightResourceTests
 
         attributes.ShouldNotContain(a => a.Key == "service.name");
     }
+
+    [Theory]
+    [InlineData("service.version = 1.0 , team=core", false)]  // whitespace around key is trimmed
+    [InlineData("SERVICE.VERSION=1.0", false)]                // key match is case-insensitive
+    [InlineData("team=a=b,service.version=2", false)]         // value containing '=' does not confuse key parsing
+    [InlineData("team=core,", true)]                          // trailing comma yields an empty pair, no key match
+    public void Detects_service_version_key_across_parse_edges(string resourceAttributes, bool expectServiceVersionAdded)
+    {
+        var attributes = OversightResource.BuildFallbackAttributes(null, resourceAttributes, "Production", TestAssembly);
+
+        attributes.Any(a => a.Key == "service.version").ShouldBe(expectServiceVersionAdded);
+    }
 }
