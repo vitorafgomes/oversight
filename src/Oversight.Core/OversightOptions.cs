@@ -14,6 +14,8 @@ public sealed class OversightOptions
 
     public EntityFrameworkCoreOptions EntityFrameworkCore { get; } = new();
 
+    public SqlServerOptions SqlServer { get; } = new();
+
     public sealed class PrometheusOptions
     {
         /// <summary>Exposes a Prometheus scrape endpoint at /metrics. Default: false.</summary>
@@ -38,5 +40,35 @@ public sealed class OversightOptions
         /// When false (default) Oversight strips db.query.text/db.statement from database spans.
         /// </summary>
         public bool CaptureQueryText { get; set; }
+    }
+
+    public sealed class SqlServerOptions
+    {
+        /// <summary>
+        /// Enables SQL Server health collection (Oversight.SqlServer package). Default: false —
+        /// opt-in because it requires a connection string.
+        /// </summary>
+        public bool Enabled { get; set; }
+
+        /// <summary>Name of the ConnectionStrings entry for the monitored database.</summary>
+        public string ConnectionStringName { get; set; } = string.Empty;
+
+        /// <summary>Interval between collection cycles. Default: 15 minutes; minimum: 1 minute.</summary>
+        public TimeSpan CollectionInterval { get; set; } = TimeSpan.FromMinutes(15);
+
+        public SqlServerCollectorOptions Collectors { get; } = new();
+    }
+
+    public sealed class SqlServerCollectorOptions
+    {
+        public bool BlockingSessions { get; set; } = true;
+
+        public bool LongRunningTransactions { get; set; } = true;
+
+        public bool MissingIndexes { get; set; } = true;
+
+        public bool StaleStatistics { get; set; } = true;
+
+        public bool WaitStatistics { get; set; } = true;
     }
 }

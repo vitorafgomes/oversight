@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oversight.Sample.Api", "sam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oversight.SqlServer", "src\Oversight.SqlServer\Oversight.SqlServer.csproj", "{E4F773FF-B0FC-47B4-BA84-9124B77517BF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oversight.SqlServer.Tests", "tests\Oversight.SqlServer.Tests\Oversight.SqlServer.Tests.csproj", "{9D71111C-1A7F-45FA-90B7-C5D80B1DC39D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -187,6 +189,18 @@ Global
 		{E4F773FF-B0FC-47B4-BA84-9124B77517BF}.Release|x64.Build.0 = Release|Any CPU
 		{E4F773FF-B0FC-47B4-BA84-9124B77517BF}.Release|x86.ActiveCfg = Release|Any CPU
 		{E4F773FF-B0FC-47B4-BA84-9124B77517BF}.Release|x86.Build.0 = Release|Any CPU
+		{9D71111C-1A7F-45FA-90B7-C5D80B1DC39D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D71111C-1A7F-45FA-90B7-C5D80B1DC39D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D71111C-1A7F-45FA-90B7-C5D80B1DC39D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9D71111C-1A7F-45FA-90B7-C5D80B1DC39D}.Debug|x64.Build.0 = Debug|Any CPU
+		{9D71111C-1A7F-45FA-90B7-C5D80B1DC39D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9D71111C-1A7F-45FA-90B7-C5D80B1DC39D}.Debug|x86.Build.0 = Debug|Any CPU
+		{9D71111C-1A7F-45FA-90B7-C5D80B1DC39D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D71111C-1A7F-45FA-90B7-C5D80B1DC39D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D71111C-1A7F-45FA-90B7-C5D80B1DC39D}.Release|x64.ActiveCfg = Release|Any CPU
+		{9D71111C-1A7F-45FA-90B7-C5D80B1DC39D}.Release|x64.Build.0 = Release|Any CPU
+		{9D71111C-1A7F-45FA-90B7-C5D80B1DC39D}.Release|x86.ActiveCfg = Release|Any CPU
+		{9D71111C-1A7F-45FA-90B7-C5D80B1DC39D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -204,5 +218,6 @@ Global
 		{A541F154-EDC7-46DF-BD35-00AE9A0FB9EE} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
 		{2A7C3351-4133-4A0E-B4DB-C2803ABE6802} = {5D20AA90-6969-D8BD-9DCD-8634F4692FDA}
 		{E4F773FF-B0FC-47B4-BA84-9124B77517BF} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
+		{9D71111C-1A7F-45FA-90B7-C5D80B1DC39D} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
 	EndGlobalSection
 EndGlobal
