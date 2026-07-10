@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Oversight core: opinionated OpenTelemetry defaults for any .NET host — OTLP exporter, resource identity fallbacks, HttpClient, runtime and process telemetry.</Description>
+    <NoWarn>$(NoWarn);NU5104</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" />
+    <PackageReference Include="OpenTelemetry.Extensions.Hosting" />
+    <PackageReference Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.Http" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.Process" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Oversight" />
+    <InternalsVisibleTo Include="Oversight.AspNetCore" />
+    <InternalsVisibleTo Include="Oversight.EntityFrameworkCore" />
+    <InternalsVisibleTo Include="Oversight.Core.Tests" />
+    <InternalsVisibleTo Include="Oversight.AspNetCore.Tests" />
+    <InternalsVisibleTo Include="Oversight.EntityFrameworkCore.Tests" />
+    <InternalsVisibleTo Include="Oversight.Tests" />
+  </ItemGroup>
+</Project>

@@ -2,18 +2,18 @@
 
 ## Precedence
 
-1. Standard `OTEL_*` environment variables (highest — never overridden by Farol).
-2. The `AddFarol*` lambda.
-3. The `"Farol"` appsettings section.
-4. Farol defaults.
+1. Standard `OTEL_*` environment variables (highest — never overridden by Oversight).
+2. The `AddOversight*` lambda.
+3. The `"Oversight"` appsettings section.
+4. Oversight defaults.
 
-## OTel standard variables (handled by the SDK, not Farol)
+## OTel standard variables (handled by the SDK, not Oversight)
 
 `OTEL_EXPORTER_OTLP_ENDPOINT`, `OTEL_EXPORTER_OTLP_PROTOCOL`,
 `OTEL_EXPORTER_OTLP_HEADERS`, `OTEL_SERVICE_NAME`, `OTEL_RESOURCE_ATTRIBUTES`,
 `OTEL_TRACES_SAMPLER` (default `parentbased_always_on`).
 
-## Farol section
+## Oversight section
 
 See the README table. Notes:
 
@@ -22,12 +22,12 @@ See the README table. Notes:
 - Configuration-bound `ExcludedPaths` values are appended to the defaults; call
   `ExcludedPaths.Clear()` in the lambda to replace them.
 - `Prometheus:Enabled` and `EntityFrameworkCore:Enabled` are read when the
-  `AddFarol*` method runs (they add/skip registrations); set them in
+  `AddOversight*` method runs (they add/skip registrations); set them in
   appsettings or in the same call's lambda.
-- Configure options once — pass the lambda to a single `AddFarol*` call.
+- Configure options once — pass the lambda to a single `AddOversight*` call.
 
 ## Security
 
 `db.query.text` / `db.statement` are stripped from database spans unless
-`Farol:EntityFrameworkCore:CaptureQueryText` is `true`. Query parameters are
+`Oversight:EntityFrameworkCore:CaptureQueryText` is `true`. Query parameters are
 never captured.

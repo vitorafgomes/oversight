@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Opinionated OpenTelemetry defaults for .NET in one call: builder.AddOversight(). Meta-package aggregating Oversight.Core, Oversight.AspNetCore and Oversight.EntityFrameworkCore.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../Oversight.Core/Oversight.Core.csproj" />
+    <ProjectReference Include="../Oversight.AspNetCore/Oversight.AspNetCore.csproj" />
+    <ProjectReference Include="../Oversight.EntityFrameworkCore/Oversight.EntityFrameworkCore.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Oversight.Tests" />
+  </ItemGroup>
+</Project>

@@ -9,8 +9,8 @@
     <MinVerTagPrefix>v</MinVerTagPrefix>
     <Authors>vitorafgomes</Authors>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/vitorafgomes/farol</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/vitorafgomes/farol</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/vitorafgomes/oversight</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/vitorafgomes/oversight</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>

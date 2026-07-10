@@ -1,4 +1,4 @@
-# Farol
+# Oversight
 
 Opinionated OpenTelemetry defaults for .NET 10 in one call. Like Aspire
 ServiceDefaults, but standalone, centrally upgradable via NuGet, and working in
@@ -7,12 +7,12 @@ any host.
 ## Quick start
 
 ```bash
-dotnet add package Farol
+dotnet add package Oversight
 ```
 
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
-builder.AddFarol();
+builder.AddOversight();
 ```
 
 That is production-grade traces and metrics: OTLP export, HTTP server/client,
@@ -24,36 +24,36 @@ standard variable:
 export OTEL_EXPORTER_OTLP_ENDPOINT=http://my-collector:4317
 ```
 
-No endpoint configured? Farol defaults to `localhost:4317` and logs a startup
+No endpoint configured? Oversight defaults to `localhost:4317` and logs a startup
 warning — it never fails, and an unreachable collector never breaks your app.
 
 ## Packages
 
 | Package | Use when |
 |---|---|
-| `Farol` | ASP.NET Core apps (aggregates the three below) — `AddFarol()` |
-| `Farol.Core` | Worker Services / console hosts — `AddFarolCore()` |
-| `Farol.AspNetCore` | Granular: HTTP server traces/metrics, noise filter, Prometheus — `AddFarolAspNetCore()` |
-| `Farol.EntityFrameworkCore` | Granular: EF Core + SqlClient traces — `AddFarolEntityFrameworkCore()` |
+| `Oversight` | ASP.NET Core apps (aggregates the three below) — `AddOversight()` |
+| `Oversight.Core` | Worker Services / console hosts — `AddOversightCore()` |
+| `Oversight.AspNetCore` | Granular: HTTP server traces/metrics, noise filter, Prometheus — `AddOversightAspNetCore()` |
+| `Oversight.EntityFrameworkCore` | Granular: EF Core + SqlClient traces — `AddOversightEntityFrameworkCore()` |
 
 ## Configuration
 
 Standard `OTEL_*` environment variables (endpoint, protocol, headers, sampler,
-resource attributes) always win — Farol never re-invents them. The `"Farol"`
-appsettings section (or the lambda) controls only Farol-specific behavior:
+resource attributes) always win — Oversight never re-invents them. The `"Oversight"`
+appsettings section (or the lambda) controls only Oversight-specific behavior:
 
 | Key | Default | Meaning |
 |---|---|---|
-| `Farol:Prometheus:Enabled` | `false` | Serve Prometheus text at `/metrics` |
-| `Farol:NoiseReduction:ExcludedPaths` | `/health /healthz /alive /ready /metrics` | Path globs excluded from server traces (config values append to defaults) |
-| `Farol:EntityFrameworkCore:Enabled` | `true` | Register EF Core + SqlClient instrumentation |
-| `Farol:EntityFrameworkCore:CaptureQueryText` | `false` | Opt-in: keep `db.query.text` on database spans |
+| `Oversight:Prometheus:Enabled` | `false` | Serve Prometheus text at `/metrics` |
+| `Oversight:NoiseReduction:ExcludedPaths` | `/health /healthz /alive /ready /metrics` | Path globs excluded from server traces (config values append to defaults) |
+| `Oversight:EntityFrameworkCore:Enabled` | `true` | Register EF Core + SqlClient instrumentation |
+| `Oversight:EntityFrameworkCore:CaptureQueryText` | `false` | Opt-in: keep `db.query.text` on database spans |
 
 ```csharp
-builder.AddFarol(farol =>
+builder.AddOversight(oversight =>
 {
-    farol.Prometheus.Enabled = true;
-    farol.NoiseReduction.ExcludedPaths.Add("/internal/*");
+    oversight.Prometheus.Enabled = true;
+    oversight.NoiseReduction.ExcludedPaths.Add("/internal/*");
 });
 ```
 

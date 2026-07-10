@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Oversight for Entity Framework Core: EF Core and SqlClient traces with connection pool metrics. SQL query text capture is opt-in, never default.</Description>
+    <NoWarn>$(NoWarn);NU5104</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="OpenTelemetry.Instrumentation.EntityFrameworkCore" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.SqlClient" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../Oversight.Core/Oversight.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Oversight" />
+    <InternalsVisibleTo Include="Oversight.EntityFrameworkCore.Tests" />
+    <InternalsVisibleTo Include="Oversight.Tests" />
+  </ItemGroup>
+</Project>

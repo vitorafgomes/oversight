@@ -1,6 +1,6 @@
 # Philosophy
 
-- **One call, real defaults.** `AddFarol()` must be enough for production.
+- **One call, real defaults.** `AddOversight()` must be enough for production.
 - **Never re-invent OTel.** Anything the OTel spec standardizes (endpoints,
   samplers, resource attributes) is configured the OTel way.
 - **Telemetry never breaks the app.** No throwing on the hot path; an
